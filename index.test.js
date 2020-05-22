@@ -17,6 +17,7 @@ test('sends a newsletter to users that did not yet receive it', async t => {
   sinon.stub(emailService, 'sendTo')
 
   await newsletter.run(userRepository, emailService)
+
   t.is(userRepository.findNotYetReceivedNewsletter.callCount, 1)
   t.is(emailService.sendTo.callCount, 1)
   // implement your assertions about arguments, like "recipient", "subject", "content" of the email etc.

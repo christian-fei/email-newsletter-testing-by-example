@@ -1,17 +1,17 @@
 const test = require('ava')
 const sinon = require('sinon')
-const db = require('./lib/db')
+const { UsersCollection } = require('./lib/db')
 
 const userRepository = require('./lib/user-repository')
 const emailService = require('./lib/email-service')
 const newsletter = require('.')
 
 test.beforeEach(async () => {
-  await db.get('users').remove({})
+  await UsersCollection.remove({})
 })
 
 test('sends a newsletter to users that did not yet receive it', async t => {
-  await db.get('users').insert({ name: 'test', email: 'test@test.com', lastEmailSentAt: null })
+  await UsersCollection.insert({ name: 'test', email: 'test@test.com', lastEmailSentAt: null })
 
   sinon.spy(userRepository, 'findNotYetReceivedNewsletter')
   sinon.stub(emailService, 'sendTo')

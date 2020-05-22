@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "MONGO_URL=localhost:27017/test ava"
+    "test": "MONGO_URL=localhost:27017/test ava -s"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,19 @@
+{
+  "name": "email-newsletter-testing-by-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "MONGO_URL=localhost:27017/test ava"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^3.8.2",
+    "sinon": "^9.0.2"
+  },
+  "dependencies": {
+    "monk": "^7.3.0"
+  }
+}
